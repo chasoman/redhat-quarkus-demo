@@ -84,7 +84,7 @@ Take a look at this file - src/main/docker/Dockerfile.jvm
 
 First compile the code:
 
-> ./mvnw quarkus:dev
+> ./mvnw quarkus:build
 
 Next login to the oc cluster
 
