@@ -77,3 +77,27 @@ native executable:
 After getting a cup of coffee, you'll be able to run this executable directly:
 
 > ./target/getting-started-1.0.0-SNAPSHOT-runner
+
+### Deploy Quarkus to Red Hat Code Ready OpenShift Cluster
+You can deploy the Quarkus app to the Red Hat Code Ready OpenShift Cluster by following these commands
+Take a look at this file - src/main/docker/Dockerfile.jvm
+
+First login to the oc cluster
+
+Then create a build:
+
+> oc new-build --strategy docker --dockerfile - --code . --name getting-started < src/main/docker/Dockerfile.jvm
+
+Next create a deployment:
+
+> oc start-build --from-dir . getting-started
+
+From the OpenShift console (in Admin mode) observe that an image stream should be created and note the name.
+
+Now create an app from the image stream
+
+> oc new-app --image-stream <<Replace the image stream name in here>> --name getting-started
+
+Finally create a route to expose the app to the world
+
+> oc expose service/getting-started
