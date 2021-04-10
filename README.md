@@ -96,7 +96,7 @@ From the OpenShift console (in Admin mode) observe that an image stream should b
 
 Now create an app from the image stream:
 
-> oc new-app --image-stream <<Replace the image stream name in here>> --name getting-started
+> oc new-app --image-stream {Replace the image stream name in here} --name getting-started
 
 Finally create a route to expose the app to the world:
 
