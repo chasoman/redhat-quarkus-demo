@@ -82,7 +82,11 @@ After getting a cup of coffee, you'll be able to run this executable directly:
 You can deploy the Quarkus app to the Red Hat Code Ready OpenShift Cluster by following these commands.
 Take a look at this file - src/main/docker/Dockerfile.jvm
 
-First login to the oc cluster
+First compile the code:
+
+> ./mvnw quarkus:dev
+
+Next login to the oc cluster
 
 Then create a build:
 
